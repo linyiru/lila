@@ -101,10 +101,8 @@ async function compile(sources: string[], logAll = true): Promise<string[]> {
       '--stop-on-error',
       '--no-color',
       '--quiet-deps',
-      // TODO: --silence-deprecation not supported by sasso yet, remove --quiet when it is
-      '--quiet',
       // TODO: remove 'global-builtin' silence when png-viewer code is updated
-      // '--silence-deprecation=import,global-builtin',
+      '--silence-deprecation=import,global-builtin',
     ];
     sassPs?.removeAllListeners();
     sassPs = cps.spawn(
